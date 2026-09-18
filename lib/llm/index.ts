@@ -22,6 +22,8 @@ export function getLlmProvider(overrides?: { model?: string }): LlmProvider {
     model: overrides?.model ?? process.env.UPSTAGE_MODEL,
     baseURL: process.env.UPSTAGE_BASE_URL,
     reasoningEffort: process.env.UPSTAGE_REASONING_EFFORT,
+    siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
+    appName: "업무 용어 번역기",
   });
   if (!overrides) cached = provider;
   return provider;
