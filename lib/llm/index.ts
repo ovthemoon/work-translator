@@ -1,4 +1,5 @@
 import type { LlmProvider } from "./provider";
+import { MockProvider } from "./mock";
 import { UpstageProvider } from "./upstage";
 
 export type { LlmProvider, LlmRequest, LlmResponse, ChatMessage } from "./provider";
@@ -12,6 +13,10 @@ let cached: LlmProvider | null = null;
  */
 export function getLlmProvider(overrides?: { model?: string }): LlmProvider {
   if (cached && !overrides) return cached;
+  if (process.env.LLM_PROVIDER === "mock" && process.env.NODE_ENV !== "production") {
+    cached = new MockProvider();
+    return cached;
+  }
   const provider = new UpstageProvider({
     apiKey: process.env.UPSTAGE_API_KEY ?? "",
     model: overrides?.model ?? process.env.UPSTAGE_MODEL,
