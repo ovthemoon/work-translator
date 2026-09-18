@@ -31,3 +31,20 @@ npm run dev
 ## 데이터 원칙
 
 입력 원문과 결과는 서버에 저장하지 않고 로그에도 남기지 않는다. 👍/👎 피드백에서 동의한 경우에만, 이름·연락처·회사명을 토큰으로 치환한 뒤 저장한다.
+
+## 배포
+
+| 구성 | 위치 |
+|---|---|
+| 앱 | Vercel 프로젝트 `work-translator` (프로덕션 `work-translator.vercel.app`) |
+| 공개 주소 | `translate.opendesk.page` → `deploy/opendesk-proxy` Cloudflare Worker 가 Vercel 로 프록시 |
+
+Vercel 프로덕션 환경변수: `UPSTAGE_API_KEY`(필수, 직접 입력), `UPSTAGE_MODEL`, `UPSTAGE_BASE_URL`, `UPSTAGE_REASONING_EFFORT`, `NEXT_PUBLIC_SITE_URL`, `PROXY_SECRET`.
+선택: `SUPABASE_URL` + `SUPABASE_SERVICE_ROLE_KEY`(피드백 저장, `supabase/migrations` 적용 필요), `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`(레이트 리밋·캐시).
+
+```bash
+vercel --prod                                   # 앱
+cd deploy/opendesk-proxy && npx wrangler deploy  # 프록시 (PROXY_SECRET 은 wrangler secret 으로)
+```
+
+API 오류 응답은 502/504 를 쓰지 않는다. Cloudflare 가 그 코드를 자기 오류 페이지로 바꿔 버리기 때문이다.

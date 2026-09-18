@@ -54,14 +54,15 @@ export async function POST(req: NextRequest) {
     // 원문은 절대 로그에 남기지 않는다. 오류 종류와 상태 코드만 기록한다.
     if (error instanceof LlmProviderError) {
       console.error(`[translate] provider error status=${error.status ?? "?"} retryable=${error.retryable}`);
-      const message = error.message.includes("API_KEY")
-        ? "서버에 번역 모델 설정이 아직 되어 있지 않아요."
-        : "번역 서비스가 잠시 응답하지 않아요. 잠시 후 다시 시도해 주세요.";
-      return fail(message, error.retryable ? 503 : 502);
+      // 502/504 는 Cloudflare 프록시가 자기 오류 페이지로 바꿔 버리므로 쓰지 않는다.
+      if (error.message.includes("API_KEY")) {
+        return fail("서버에 번역 모델 설정이 아직 되어 있지 않아요.", 500);
+      }
+      return fail("번역 서비스가 잠시 응답하지 않아요. 잠시 후 다시 시도해 주세요.", 503);
     }
     if (error instanceof TranslateParseError) {
       console.error("[translate] parse error");
-      return fail("번역 결과를 읽는 데 실패했어요. 다시 한 번 시도해 주세요.", 502);
+      return fail("번역 결과를 읽는 데 실패했어요. 다시 한 번 시도해 주세요.", 503);
     }
     console.error("[translate] unexpected error", error instanceof Error ? error.name : typeof error);
     return fail("알 수 없는 오류가 발생했어요.", 500);

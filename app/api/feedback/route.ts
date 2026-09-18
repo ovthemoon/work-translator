@@ -51,6 +51,6 @@ export async function POST(req: NextRequest) {
     return ok({ stored: true });
   } catch (error) {
     console.error("[feedback] store failed", error instanceof Error ? error.name : typeof error);
-    return fail("피드백을 저장하지 못했어요. 잠시 후 다시 시도해 주세요.", 502);
+    return fail("피드백을 저장하지 못했어요. 잠시 후 다시 시도해 주세요.", 503);
   }
 }

@@ -14,20 +14,17 @@ export default {
     const incoming = new URL(request.url);
     const target = new URL(incoming.pathname + incoming.search, origin);
 
-    const headers = new Headers(request.headers);
-    headers.set("host", target.host);
-    headers.set("x-forwarded-host", incoming.host);
-    headers.set("x-forwarded-proto", "https");
+    // 원 요청을 그대로 복제(메서드·본문 포함)하고 헤더만 손본다.
+    const proxied = new Request(target.toString(), request);
+    proxied.headers.set("x-forwarded-host", incoming.host);
+    proxied.headers.set("x-forwarded-proto", "https");
+    proxied.headers.delete("x-client-ip");
+    proxied.headers.delete("x-proxy-secret");
     const clientIp = request.headers.get("cf-connecting-ip");
-    if (clientIp) headers.set("x-client-ip", clientIp);
-    if (env.PROXY_SECRET) headers.set("x-proxy-secret", env.PROXY_SECRET);
+    if (clientIp) proxied.headers.set("x-client-ip", clientIp);
+    if (env.PROXY_SECRET) proxied.headers.set("x-proxy-secret", env.PROXY_SECRET);
 
-    const upstream = await fetch(target, {
-      method: request.method,
-      headers,
-      body: request.method === "GET" || request.method === "HEAD" ? undefined : request.body,
-      redirect: "manual",
-    });
+    const upstream = await fetch(proxied, { redirect: "manual" });
 
     // Vercel 이 자기 호스트로 리다이렉트하면 우리 호스트로 되돌린다
     const location = upstream.headers.get("location");
