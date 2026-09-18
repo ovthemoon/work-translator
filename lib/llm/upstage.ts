@@ -119,5 +119,8 @@ function toProviderError(error: unknown): LlmProviderError {
   if (error instanceof Error && error.name === "APIConnectionTimeoutError") {
     return new LlmProviderError("LLM 응답 시간이 초과되었습니다.", undefined, true);
   }
+  // 원문이 섞이지 않는 오류 이름·메시지 앞부분만 남긴다 (연결 오류, 헤더 오류 등 진단용)
+  const detail = error instanceof Error ? `${error.name}: ${error.message.slice(0, 120)}` : typeof error;
+  console.error(`[llm] non-API error ${detail}`);
   return new LlmProviderError("LLM 요청 중 알 수 없는 오류가 발생했습니다.");
 }

@@ -23,7 +23,7 @@ export function getLlmProvider(overrides?: { model?: string }): LlmProvider {
     baseURL: process.env.UPSTAGE_BASE_URL,
     reasoningEffort: process.env.UPSTAGE_REASONING_EFFORT,
     siteUrl: process.env.NEXT_PUBLIC_SITE_URL,
-    appName: "업무 용어 번역기",
+    appName: "work-translator", // HTTP 헤더 값은 ASCII 만 허용
   });
   if (!overrides) cached = provider;
   return provider;
