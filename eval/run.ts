@@ -28,6 +28,7 @@ type Phrase = {
   to_role: TranslateInput["toRole"];
   depth: TranslateInput["depth"];
   mode: TranslateInput["mode"];
+  style?: TranslateInput["style"];
   input: string;
   category?: string;
   expect?: string;
@@ -91,7 +92,7 @@ async function main() {
 
   console.log(`target=${args.remote ?? provider!.model} phrases=${phrases.length}`);
   for (const p of phrases) {
-    const input: TranslateInput = { text: p.input, fromRole: p.from_role, toRole: p.to_role, depth: p.depth, mode: p.mode ?? "translate" };
+    const input: TranslateInput = { text: p.input, fromRole: p.from_role, toRole: p.to_role, depth: p.depth, mode: p.mode ?? "translate", style: p.style ?? "explain" };
     const started = Date.now();
     const base = { id: p.id, category: p.category ?? "", from_role: p.from_role, to_role: p.to_role, depth: p.depth, mode: input.mode, input: p.input, expect: p.expect ?? "" };
     try {

@@ -9,6 +9,7 @@ describe("buildMessages", () => {
       toRole: "developer",
       depth: "simple",
       mode: "translate",
+      style: "explain",
     });
     const system = msgs[0];
     expect(system.role).toBe("system");
@@ -25,6 +26,7 @@ describe("buildMessages", () => {
       toRole: "developer",
       depth: "simple",
       mode: "translate",
+      style: "explain",
     });
     const roles = msgs.map((m) => m.role);
     expect(roles[0]).toBe("system");
@@ -43,7 +45,29 @@ describe("buildMessages", () => {
       toRole: "executive",
       depth: "practitioner",
       mode: "reverse",
+      style: "explain",
     });
     expect(msgs[0].content).toContain("다듬어");
+  });
+
+  test("uses the honest prompt and only honest examples in honest style", () => {
+    const msgs = buildMessages({
+      text: "안녕",
+      fromRole: "client",
+      toRole: "developer",
+      depth: "simple",
+      mode: "translate",
+      style: "honest",
+    });
+    expect(msgs[0].content).toContain("속마음");
+    const assistants = msgs.filter((m) => m.role === "assistant").map((m) => JSON.parse(m.content).translation as string);
+    expect(assistants.length).toBeGreaterThan(0);
+    expect(assistants.some((t) => t.includes("라는 뜻이에요"))).toBe(false);
+  });
+
+  test("ignores style in reverse mode", () => {
+    const a = buildMessages({ text: "안녕", fromRole: "developer", toRole: "client", depth: "simple", mode: "reverse", style: "honest" });
+    const b = buildMessages({ text: "안녕", fromRole: "developer", toRole: "client", depth: "simple", mode: "reverse", style: "explain" });
+    expect(a).toEqual(b);
   });
 });

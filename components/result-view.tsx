@@ -34,6 +34,7 @@ function CopyButton({ text, label = "복사" }: { text: string; label?: string }
 
 export function ResultView({ input, output, remaining }: Props) {
   const isReverse = input.mode === "reverse";
+  const heading = isReverse ? "이렇게 보내 보세요" : input.style === "honest" ? "속마음은 이래요" : "이런 뜻이에요";
   return (
     <section aria-live="polite" className="rounded-xl border border-border bg-card p-5 sm:p-7">
       <p className="text-sm text-muted-foreground">
@@ -44,7 +45,7 @@ export function ResultView({ input, output, remaining }: Props) {
       </blockquote>
 
       <h2 className="mt-7 text-base font-semibold">
-        <span className="mark">{isReverse ? "이렇게 보내 보세요" : "이런 뜻이에요"}</span>
+        <span className="mark">{heading}</span>
       </h2>
       <p className="mt-3 text-lg leading-relaxed sm:text-xl whitespace-pre-wrap">{output.translation}</p>
       <div className="mt-2">

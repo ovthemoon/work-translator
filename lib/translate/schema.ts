@@ -5,6 +5,7 @@ import {
   MAX_INPUT_CHARS,
   MODE_IDS,
   ROLE_IDS,
+  STYLE_IDS,
 } from "./roles";
 
 export const translateInputSchema = z.object({
@@ -17,6 +18,8 @@ export const translateInputSchema = z.object({
   toRole: z.enum(ROLE_IDS),
   depth: z.enum(DEPTH_IDS),
   mode: z.enum(MODE_IDS).default("translate"),
+  /** 해석 모드에서만 의미 있음. reverse 에서는 무시 */
+  style: z.enum(STYLE_IDS).default("explain"),
 });
 
 export type TranslateInput = z.infer<typeof translateInputSchema>;

@@ -7,7 +7,7 @@ import { RolePair } from "@/components/role-pair";
 import { Segmented } from "@/components/segmented";
 import { ResultView } from "@/components/result-view";
 import { requestTranslate, type TranslateApiData } from "@/lib/translate/client";
-import { DEPTHS, MAX_INPUT_CHARS, MODES, type DepthId, type ModeId, type RoleId } from "@/lib/translate/roles";
+import { DEPTHS, MAX_INPUT_CHARS, MODES, STYLES, type DepthId, type ModeId, type RoleId, type StyleId } from "@/lib/translate/roles";
 import type { TranslateInput } from "@/lib/translate/schema";
 
 const PLACEHOLDER: Record<ModeId, string> = {
@@ -23,6 +23,7 @@ export function Translator() {
   const [toRole, setToRole] = useState<RoleId>("developer");
   const [depth, setDepth] = useState<DepthId>("practitioner");
   const [mode, setMode] = useState<ModeId>("translate");
+  const [style, setStyle] = useState<StyleId>("explain");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
   const trimmed = text.trim();
@@ -31,7 +32,7 @@ export function Translator() {
 
   async function submit() {
     if (!canSubmit) return;
-    const input: TranslateInput = { text: trimmed, fromRole, toRole, depth, mode };
+    const input: TranslateInput = { text: trimmed, fromRole, toRole, depth, mode, style };
     setStatus({ kind: "loading" });
     try {
       const data = await requestTranslate(input);
@@ -78,6 +79,7 @@ export function Translator() {
 
         <div className="flex flex-wrap items-center gap-4">
           <Segmented label="설명 깊이" options={DEPTHS} value={depth} onChange={setDepth} />
+          {mode === "translate" && <Segmented label="번역 스타일" options={STYLES} value={style} onChange={setStyle} />}
           <Button type="submit" disabled={!canSubmit} size="lg" className="ml-auto">
             {status.kind === "loading" ? (mode === "translate" ? "번역하는 중…" : "다듬는 중…") : mode === "translate" ? "번역하기" : "다듬기"}
           </Button>

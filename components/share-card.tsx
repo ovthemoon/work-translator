@@ -81,7 +81,7 @@ export function ShareCardButton({ input, output }: Props) {
 
           <div style={{ marginTop: 22, fontSize: 13, color: "#5f6676" }}>
             <span style={{ background: "linear-gradient(transparent 55%, #ffe45c 55%, #ffe45c 92%, transparent 92%)", padding: "0 2px", color: "#1a2440", fontWeight: 600 }}>
-              {input.mode === "reverse" ? "이렇게 보내 보세요" : "이런 뜻이에요"}
+              {input.mode === "reverse" ? "이렇게 보내 보세요" : input.style === "honest" ? "속마음은 이래요" : "이런 뜻이에요"}
             </span>
           </div>
           <div style={{ marginTop: 6, fontSize: 21, fontWeight: 600, whiteSpace: "pre-wrap" }}>{output.translation}</div>

@@ -30,6 +30,14 @@ export const MODES = [
 export type ModeId = (typeof MODES)[number]["id"];
 export const MODE_IDS = MODES.map((m) => m.id) as [ModeId, ...ModeId[]];
 
+export const STYLES = [
+  { id: "explain", label: "풀어서 설명" },
+  { id: "honest", label: "속마음 직역" },
+] as const;
+
+export type StyleId = (typeof STYLES)[number]["id"];
+export const STYLE_IDS = STYLES.map((s) => s.id) as [StyleId, ...StyleId[]];
+
 export const MAX_INPUT_CHARS = 1000;
 export const MAX_CLARIFYING_QUESTIONS = 3;
 

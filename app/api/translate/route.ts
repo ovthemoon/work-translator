@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
   }
 
   const cache = getCache();
-  const key = cacheKeyFor({ text: input.text, from: input.fromRole, to: input.toRole, depth: input.depth, mode: input.mode });
+  const key = cacheKeyFor({ text: input.text, from: input.fromRole, to: input.toRole, depth: input.depth, mode: input.mode, style: input.style });
   const hit = isEval ? null : await cache.get<TranslateOutput>(key).catch(() => null);
   if (hit) {
     return ok<TranslateApiData>({ output: hit, cached: true, remaining: limit.remaining });

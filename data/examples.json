@@ -151,5 +151,149 @@
       ],
       "caution": null
     }
+  },
+  {
+    "id": "honest-01",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "style": "honest",
+    "input": "네이버처럼 만들어주세요",
+    "output": {
+      "translation": "기깔나는 거 알아서 좀 만들어주세요. 뭘 원하는지는 저도 정확히 몰라요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "네이버의 어느 부분이요? 검색, 첫 화면, 로그인 중에서요",
+        "참고할 화면 하나만 캡처해 주실 수 있나요?"
+      ],
+      "caution": "'네이버처럼'은 끝이 없는 요청이에요. 화면 하나로 좁히기 전엔 견적을 내지 마세요."
+    }
+  },
+  {
+    "id": "honest-02",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "style": "honest",
+    "input": "로고만 살짝 바꿔주시면 돼요",
+    "output": {
+      "translation": "로고 바꿔주세요. 근데 어디까지 바꿔야 하는지는 저도 몰라요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "새 로고 파일(벡터) 있나요?",
+        "파비콘, 앱 아이콘, 공유 이미지까지 다 바꾸나요?"
+      ],
+      "caution": "'살짝'과 달리 로고가 들어간 곳이 많으면 일이 커져요."
+    }
+  },
+  {
+    "id": "honest-03",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "style": "honest",
+    "input": "급한 건 아닌데 이번 주 안에만 해주세요",
+    "output": {
+      "translation": "급해요. 금요일까지요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "금요일 몇 시까지요?",
+        "지금 하던 것보다 먼저인가요?"
+      ],
+      "caution": "'이번 주'가 금요일 오전인지 일요일 밤인지 서로 다르게 생각할 수 있어요."
+    }
+  },
+  {
+    "id": "honest-04",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "style": "honest",
+    "input": "그거 하려면 DB 구조를 좀 바꿔야 해서요",
+    "output": {
+      "translation": "그거 작은 일 아니에요. 바닥부터 뜯어야 해서 시간 꽤 걸려요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "얼마나 걸릴 것 같아요?"
+      ],
+      "caution": "바닥을 뜯는 작업은 되돌리기 어려워요. 기간과 위험을 따로 물어보세요."
+    }
+  },
+  {
+    "id": "honest-05",
+    "from_role": "designer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "style": "honest",
+    "input": "여기 좀 더 숨 쉬게 해주세요",
+    "output": {
+      "translation": "여백 더 주세요. 몇 px인지는 저도 아직 안 정했어요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "몇 px요?",
+        "모바일도요?"
+      ],
+      "caution": null
+    }
+  },
+  {
+    "id": "honest-06",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "style": "honest",
+    "input": "일단 MVP니까 최소한으로만요",
+    "output": {
+      "translation": "일단 빨리요. 뭐가 최소인지는 나중에 또 바뀔 수 있어요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "꼭 들어가야 하는 기능 3개만 꼽으면요?"
+      ],
+      "caution": "'최소'를 목록으로 못 박지 않으면 '이것도 당연히 포함'이 나중에 튀어나와요."
+    }
+  },
+  {
+    "id": "honest-07",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "style": "honest",
+    "input": "그건 스코프 밖이에요",
+    "output": {
+      "translation": "그건 계약에 없던 거예요. 하려면 돈이랑 시간 더 들어요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "추가하면 비용이랑 일정이 어떻게 되나요?"
+      ],
+      "caution": "그냥 넘어가면 나중에 추가 비용 청구로 돌아와요. 지금 정하세요."
+    }
+  },
+  {
+    "id": "honest-08",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "style": "honest",
+    "input": "이번 건 린하게 가되, 싱크 한번 맞추고 얼라인되면 아삽으로 드라이브 걸죠",
+    "output": {
+      "translation": "가볍게 빨리 가요. 한 번 모여서 방향 맞추고, 정해지면 바로 달려요.",
+      "split_requests": [
+        "가볍게 빨리 진행",
+        "한 번 모여 방향 맞추기",
+        "정해지면 바로 추진"
+      ],
+      "clarifying_questions": [
+        "모이는 건 언제, 누구랑요?"
+      ],
+      "caution": null
+    }
   }
 ]

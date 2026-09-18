@@ -19,6 +19,7 @@ const input = {
   toRole: "developer" as const,
   depth: "simple" as const,
   mode: "translate" as const,
+  style: "explain" as const,
 };
 
 describe("translate", () => {
