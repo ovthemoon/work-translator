@@ -7,7 +7,9 @@
  *
  * 출력: eval/out/<model>-<timestamp>.csv
  */
-import "dotenv/config";
+import { config as loadEnv } from "dotenv";
+loadEnv({ path: ".env.local", quiet: true });
+loadEnv({ quiet: true });
 import fs from "node:fs";
 import path from "node:path";
 import { getLlmProvider } from "@/lib/llm";
