@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 업무 용어 번역기
 
-## Getting Started
+직군 사이에 오가는 애매한 메시지를 상대 직군이 이해할 수 있는 말로 번역해 주는 웹 서비스 (한국어 전용).
 
-First, run the development server:
+## 시작하기
 
 ```bash
+cp .env.example .env.local   # UPSTAGE_API_KEY 채우기
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 스크립트
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| 명령 | 설명 |
+|---|---|
+| `npm run dev` | 개발 서버 |
+| `npm test` | 단위 테스트 (vitest) |
+| `npm run typecheck` | 타입 검사 |
+| `npm run eval -- [--model X] [--limit N]` | `data/examples.json` 전체를 LLM에 돌려 `eval/out/*.csv` 로 저장 |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 구조
 
-## Learn More
+- `prompts/` 시스템 프롬프트 (translate / reverse / mask)
+- `data/examples.json` few-shot 예시
+- `lib/llm/` LLM 공급자 인터페이스와 Upstage 구현
+- `lib/translate/` 입력·출력 스키마, 프롬프트 조립, 번역 호출
+- `lib/privacy/` 피드백 저장 전 개인정보 마스킹
+- `eval/` 평가 스크립트
 
-To learn more about Next.js, take a look at the following resources:
+## 데이터 원칙
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+입력 원문과 결과는 서버에 저장하지 않고 로그에도 남기지 않는다. 👍/👎 피드백에서 동의한 경우에만, 이름·연락처·회사명을 토큰으로 치환한 뒤 저장한다.
