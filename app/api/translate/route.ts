@@ -30,8 +30,12 @@ export async function POST(req: NextRequest) {
   }
   const input = parsed.data;
 
+  // 평가 스크립트 전용 우회: EVAL_BYPASS_TOKEN 이 설정되어 있고 헤더가 일치할 때만 한도·캐시를 건너뛴다
+  const bypassToken = process.env.EVAL_BYPASS_TOKEN;
+  const isEval = Boolean(bypassToken) && req.headers.get("x-eval-token") === bypassToken;
+
   const ip = getClientIp(req);
-  const limit = await getRateLimiter().limit(ip);
+  const limit = isEval ? { success: true, remaining: -1, reset: 0 } : await getRateLimiter().limit(ip);
   if (!limit.success) {
     const resetAt = new Date(limit.reset).toLocaleTimeString("ko-KR", { hour: "2-digit", minute: "2-digit" });
     return fail(`오늘 사용 가능한 횟수를 모두 썼어요. ${resetAt} 이후에 다시 시도해 주세요.`, 429, {
@@ -41,7 +45,7 @@ export async function POST(req: NextRequest) {
 
   const cache = getCache();
   const key = cacheKeyFor({ text: input.text, from: input.fromRole, to: input.toRole, depth: input.depth, mode: input.mode });
-  const hit = await cache.get<TranslateOutput>(key).catch(() => null);
+  const hit = isEval ? null : await cache.get<TranslateOutput>(key).catch(() => null);
   if (hit) {
     return ok<TranslateApiData>({ output: hit, cached: true, remaining: limit.remaining });
   }

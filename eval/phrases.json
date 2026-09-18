@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "client-dev-01",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "버튼 하나만 추가하면 되는 거 아니에요?",
+    "expect": "버튼 뒤의 기능이 무엇인지 되물어야. 작업 크기 단정 금지"
+  },
+  {
+    "id": "client-dev-02",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "네이버처럼 만들어주세요",
+    "expect": "범위가 무한정. 어떤 부분(검색/디자인/속도)을 닮고 싶은지 질문"
+  },
+  {
+    "id": "client-dev-03",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "일단 대충 만들어놓고 나중에 고치죠",
+    "expect": "초기 범위와 '나중'의 시점·비용 확인. 재작업 주의"
+  },
+  {
+    "id": "client-dev-04",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이거 왜 이렇게 오래 걸려요? 그냥 복사 붙여넣기 아닌가요?",
+    "expect": "감정 배제하고 진행 상황 설명 요청으로 해석. 비하 없이"
+  },
+  {
+    "id": "client-dev-05",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "다른 데는 이거 하루면 한다던데",
+    "expect": "비교 근거 확인 질문. 일정 압박으로 해석"
+  },
+  {
+    "id": "client-dev-06",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "홈페이지가 느린 것 같아요",
+    "expect": "어느 페이지·어떤 환경·언제부터인지 질문"
+  },
+  {
+    "id": "client-dev-07",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "모바일에서 좀 이상해요",
+    "expect": "기기·브라우저·화면·스크린샷 요청"
+  },
+  {
+    "id": "client-dev-08",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "관리자 페이지에서 제가 다 수정할 수 있게 해주세요",
+    "expect": "'다'의 범위 목록화 질문. 범위 주의"
+  },
+  {
+    "id": "client-dev-09",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "결제 기능 넣는 거 얼마나 걸려요?",
+    "expect": "결제 수단·PG·정기결제 여부 질문. 비용 주의"
+  },
+  {
+    "id": "client-dev-10",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "회원가입 없이도 다 되게 해주세요",
+    "expect": "비회원 허용 범위 질문. 데이터 보관 이슈 주의"
+  },
+  {
+    "id": "client-dev-11",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "AI 기능 하나 넣어주세요 요즘 다 하잖아요",
+    "expect": "어떤 문제를 풀 AI인지 질문. 비용·범위 주의"
+  },
+  {
+    "id": "client-dev-12",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "디자인은 알아서 예쁘게 해주세요",
+    "expect": "레퍼런스·톤 질문. 재작업 위험 주의"
+  },
+  {
+    "id": "client-dev-13",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "일단 오픈하고 버그는 그때그때 고쳐요",
+    "expect": "오픈 후 수정 범위·비용 합의 필요. 주의"
+  },
+  {
+    "id": "client-dev-14",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "견적서에 있던 거랑 좀 다른데 이것도 포함이죠?",
+    "expect": "무엇이 다른지 명시 요청. 추가 비용 가능성 주의"
+  },
+  {
+    "id": "client-dev-15",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "사장님이 색깔 바꾸래요",
+    "expect": "어떤 색을 어디에, 결정권자 확인"
+  },
+  {
+    "id": "client-dev-16",
+    "category": "client-dev",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "검색이 안 돼요",
+    "expect": "무엇을 검색했는데 어떤 결과인지 질문"
+  },
+  {
+    "id": "dev-client-01",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그건 스코프 밖이에요",
+    "expect": "계약 범위 밖이라 별도 협의 필요라는 뜻. 비용 주의"
+  },
+  {
+    "id": "dev-client-02",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "기술 부채 때문에 리팩토링이 먼저 필요해요",
+    "expect": "눈에 안 보이는 정리 작업이 먼저 필요. 기간 언급 없으면 질문"
+  },
+  {
+    "id": "dev-client-03",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "지금 스테이징에 올려놨으니 QA 해주세요",
+    "expect": "테스트용 사이트에서 확인해 달라는 뜻. 어디서 어떻게 보는지 질문 가능"
+  },
+  {
+    "id": "dev-client-04",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "API 응답이 느려서 캐싱을 붙여야 해요",
+    "expect": "외부 데이터가 느려 미리 저장해 두는 장치 필요. 추가 작업 주의"
+  },
+  {
+    "id": "dev-client-05",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "레거시라서 건드리면 다른 데가 깨질 수 있어요",
+    "expect": "오래된 코드라 수정 위험. 테스트 시간 필요"
+  },
+  {
+    "id": "dev-client-06",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그건 브라우저 정책 때문에 안 돼요",
+    "expect": "기술적 불가능. 대안 논의 필요"
+  },
+  {
+    "id": "dev-client-07",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "서드파티 장애라 저희 쪽에서는 할 수 있는 게 없어요",
+    "expect": "외부 업체 장애. 복구 시점 미정"
+  },
+  {
+    "id": "dev-client-08",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "핫픽스로 일단 막고 근본 원인은 다음 스프린트에 잡을게요",
+    "expect": "임시 조치 후 근본 수정은 나중. 재발 가능 주의"
+  },
+  {
+    "id": "dev-exec-01",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "테스트 커버리지가 낮아서 배포가 위험해요",
+    "expect": "자동 검사가 부족해 출시 후 사고 위험. 테스트 시간 필요"
+  },
+  {
+    "id": "dev-exec-02",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "인프라 비용이 지난달 대비 40% 늘었어요",
+    "expect": "서버 비용 증가. 원인·대응 질문. 숫자는 원문 그대로"
+  },
+  {
+    "id": "dev-exec-03",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "이번 스프린트 벨로시티가 떨어졌어요",
+    "expect": "작업 처리 속도 감소. 원인 질문"
+  },
+  {
+    "id": "dev-exec-04",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "지금 구조로는 사용자 10배 늘면 못 버텨요",
+    "expect": "확장 한계. 언제쯤 문제인지·비용 질문"
+  },
+  {
+    "id": "dev-exec-05",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "보안 패치 때문에 하루 정도 서비스 점검이 필요해요",
+    "expect": "서비스 중단 필요. 시점 합의 질문"
+  },
+  {
+    "id": "dev-exec-06",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "이 기능은 외부 API 의존이라 저희가 컨트롤이 안 돼요",
+    "expect": "외부 서비스에 달려 있음. 장애 시 대응 한계"
+  },
+  {
+    "id": "dev-exec-07",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "온콜 돌아가면서 하느라 주간 개발 시간이 줄어요",
+    "expect": "장애 대응 당번 때문에 개발 시간 감소. 인력 논의"
+  },
+  {
+    "id": "dev-exec-08",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "마이그레이션 중이라 이번 주는 신규 기능 못 받아요",
+    "expect": "시스템 이전 중. 새 요청은 다음 주 이후"
+  },
+  {
+    "id": "design-dev-01",
+    "category": "design-dev",
+    "from_role": "designer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "여기 좀 더 힘 있게요",
+    "expect": "굵기·크기·대비 중 무엇인지 질문"
+  },
+  {
+    "id": "design-dev-02",
+    "category": "design-dev",
+    "from_role": "designer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이 컬러 좀 더 쨍하게 해주세요",
+    "expect": "채도 높이기. 정확한 색 코드 질문"
+  },
+  {
+    "id": "design-dev-03",
+    "category": "design-dev",
+    "from_role": "designer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "폰트가 좀 답답해 보여요",
+    "expect": "자간·행간·크기 중 무엇인지 질문"
+  },
+  {
+    "id": "design-dev-04",
+    "category": "design-dev",
+    "from_role": "designer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "시안이랑 픽셀이 안 맞아요",
+    "expect": "어느 화면·어떤 요소가 몇 px 차이인지 질문"
+  },
+  {
+    "id": "design-dev-05",
+    "category": "design-dev",
+    "from_role": "designer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이거 애니메이션 좀 부드럽게요",
+    "expect": "지속시간·이징 값 질문"
+  },
+  {
+    "id": "design-dev-06",
+    "category": "design-dev",
+    "from_role": "designer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그리드 좀 맞춰주세요",
+    "expect": "컬럼 수·간격 기준 질문"
+  },
+  {
+    "id": "dev-design-01",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그 그라데이션은 CSS로 구현하면 성능이 안 나와요",
+    "expect": "구현 방식 한계. 이미지 대체 등 대안 질문"
+  },
+  {
+    "id": "dev-design-02",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이 폰트 웹폰트 라이선스 확인됐나요?",
+    "expect": "사용 권한 확인 요청"
+  },
+  {
+    "id": "dev-design-03",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "컴포넌트 재사용하려면 상태별 시안이 다 필요해요",
+    "expect": "hover/disabled 등 상태 시안 요청"
+  },
+  {
+    "id": "dev-design-04",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이 아이콘 SVG로 주실 수 있어요?",
+    "expect": "파일 형식 요청"
+  },
+  {
+    "id": "dev-design-05",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "반응형 브레이크포인트 기준이 뭐예요?",
+    "expect": "화면 크기 기준 질문"
+  },
+  {
+    "id": "plan-dev-01",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이거 간단하게 되죠?",
+    "expect": "단정 금지. 무엇인지 구체화 질문"
+  },
+  {
+    "id": "plan-dev-02",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "요구사항은 계속 추가될 수 있어요",
+    "expect": "범위 변동 예고. 일정·비용 주의"
+  },
+  {
+    "id": "plan-dev-03",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "사용자 입장에서 좀 더 직관적으로요",
+    "expect": "구체 기준 없음. 어떤 흐름이 불편한지 질문"
+  },
+  {
+    "id": "plan-dev-04",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "일단 데이터부터 쌓아요",
+    "expect": "어떤 이벤트를 어떤 형식으로 쌓을지 질문"
+  },
+  {
+    "id": "plan-dev-05",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이건 P0예요",
+    "expect": "최우선 순위. 다른 작업 미룰지 질문"
+  },
+  {
+    "id": "plan-dev-06",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "런칭 날짜는 못 바꿔요",
+    "expect": "고정 마감. 범위 조정 필요 주의"
+  },
+  {
+    "id": "plan-dev-07",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "A/B 테스트 돌릴 수 있게 해주세요",
+    "expect": "실험 대상·지표·분기 방식 질문"
+  },
+  {
+    "id": "plan-dev-08",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그거 토글로 껐다 켰다 할 수 있죠?",
+    "expect": "기능 스위치 요청. 누가 어디서 켜는지 질문"
+  },
+  {
+    "id": "plan-dev-09",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "지표 찍히게 해주세요",
+    "expect": "어떤 이벤트·어떤 도구인지 질문"
+  },
+  {
+    "id": "plan-dev-10",
+    "category": "plan-dev",
+    "from_role": "planner",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "경쟁사 벤치마킹해서 비슷하게 가죠",
+    "expect": "어느 경쟁사·어떤 부분인지 질문"
+  },
+  {
+    "id": "dev-plan-01",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그 요구사항은 엣지 케이스가 너무 많아요",
+    "expect": "예외 상황이 많아 명세가 더 필요"
+  },
+  {
+    "id": "dev-plan-02",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "스펙이 확정돼야 견적이 나와요",
+    "expect": "요구사항 고정 전엔 기간 산정 불가"
+  },
+  {
+    "id": "dev-plan-03",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그건 프론트 문제가 아니라 데이터 문제예요",
+    "expect": "화면이 아니라 저장된 데이터 쪽 원인"
+  },
+  {
+    "id": "dev-plan-04",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "명세에 예외 처리가 없어요",
+    "expect": "실패 상황 정의 요청"
+  },
+  {
+    "id": "dev-plan-05",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그 기능은 기존 유저 데이터랑 충돌해요",
+    "expect": "기존 데이터와 호환 문제. 이전 계획 필요"
+  },
+  {
+    "id": "mkt-dev-01",
+    "category": "mkt-dev",
+    "from_role": "marketer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "랜딩 페이지 오늘 안에 하나 뽑아주세요",
+    "expect": "오늘 마감. 내용·디자인 준비 여부 질문"
+  },
+  {
+    "id": "mkt-dev-02",
+    "category": "mkt-dev",
+    "from_role": "marketer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "UTM 붙게 해주세요",
+    "expect": "링크 추적 파라미터. 어느 링크·어떤 도구인지 질문"
+  },
+  {
+    "id": "mkt-dev-03",
+    "category": "mkt-dev",
+    "from_role": "marketer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "픽셀 심어주세요",
+    "expect": "광고 추적 코드 삽입. 어떤 플랫폼·어느 페이지 질문"
+  },
+  {
+    "id": "mkt-dev-04",
+    "category": "mkt-dev",
+    "from_role": "marketer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "전환율 떨어져서 CTA 위치 바꿔야 해요",
+    "expect": "버튼 위치 변경. 어디로·근거 질문"
+  },
+  {
+    "id": "mkt-dev-05",
+    "category": "mkt-dev",
+    "from_role": "marketer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이벤트 페이지 트래픽 몰릴 거예요",
+    "expect": "급증 대비 요청. 예상 규모·시점 질문"
+  },
+  {
+    "id": "mkt-dev-06",
+    "category": "mkt-dev",
+    "from_role": "marketer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "SEO 좀 잡아주세요",
+    "expect": "검색 노출 개선. 목표 키워드·페이지 질문"
+  },
+  {
+    "id": "mkt-dev-07",
+    "category": "mkt-dev",
+    "from_role": "marketer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "뉴스레터 구독 폼 넣어주세요",
+    "expect": "어느 위치·어떤 도구 연동인지 질문"
+  },
+  {
+    "id": "dev-mkt-01",
+    "category": "dev-mkt",
+    "from_role": "developer",
+    "to_role": "marketer",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "트래킹 스크립트 때문에 페이지 로딩이 느려져요",
+    "expect": "추적 코드가 속도 저하. 정리 필요"
+  },
+  {
+    "id": "dev-mkt-02",
+    "category": "dev-mkt",
+    "from_role": "developer",
+    "to_role": "marketer",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그 데이터는 개인정보라 그렇게 못 써요",
+    "expect": "법적 제한. 대안 논의"
+  },
+  {
+    "id": "dev-mkt-03",
+    "category": "dev-mkt",
+    "from_role": "developer",
+    "to_role": "marketer",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "리다이렉트 걸면 SEO 점수 떨어질 수 있어요",
+    "expect": "주소 이동 시 검색 순위 영향 주의"
+  },
+  {
+    "id": "exec-dev-01",
+    "category": "exec-dev",
+    "from_role": "executive",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이거 언제 되나요?",
+    "expect": "일정 요청. '이거'가 무엇인지 확인"
+  },
+  {
+    "id": "exec-dev-02",
+    "category": "exec-dev",
+    "from_role": "executive",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "경쟁사는 벌써 했던데",
+    "expect": "같은 기능 요구로 해석. 어떤 기능인지 질문"
+  },
+  {
+    "id": "exec-dev-03",
+    "category": "exec-dev",
+    "from_role": "executive",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "일단 되게만 해주세요",
+    "expect": "품질 기준 낮춰 빨리. 기술 부채 주의"
+  },
+  {
+    "id": "exec-dev-04",
+    "category": "exec-dev",
+    "from_role": "executive",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "우리도 AI 붙여야 하지 않나?",
+    "expect": "방향 제안. 목적·대상 질문"
+  },
+  {
+    "id": "exec-dev-05",
+    "category": "exec-dev",
+    "from_role": "executive",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이번 분기 안에 무조건 나가야 해요",
+    "expect": "고정 마감. 범위 조정 주의"
+  },
+  {
+    "id": "exec-dev-06",
+    "category": "exec-dev",
+    "from_role": "executive",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "왜 이렇게 사람이 많이 필요해요?",
+    "expect": "인력 산정 근거 설명 요청으로 해석. 비하 없이"
+  },
+  {
+    "id": "newbie-01",
+    "category": "newbie",
+    "from_role": "newbie",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이거 어떻게 하는지 잘 모르겠어요",
+    "expect": "무엇을 어디까지 해봤는지 질문"
+  },
+  {
+    "id": "newbie-02",
+    "category": "newbie",
+    "from_role": "developer",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "PR 올리기 전에 리베이스 해주세요",
+    "expect": "최신 코드 기준으로 내 작업을 다시 얹으라는 뜻. 방법 질문"
+  },
+  {
+    "id": "newbie-03",
+    "category": "newbie",
+    "from_role": "planner",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "이거 오늘 중으로 정리해서 공유해주세요",
+    "expect": "오늘 마감. 어떤 형식·누구에게 질문"
+  },
+  {
+    "id": "newbie-04",
+    "category": "newbie",
+    "from_role": "executive",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "편하게 의견 내요",
+    "expect": "실제로 의견 원함. 범위 확인"
+  },
+  {
+    "id": "newbie-05",
+    "category": "newbie",
+    "from_role": "developer",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그거 스테이징에서 확인하고 머지해요",
+    "expect": "테스트 서버 확인 후 합치기"
+  },
+  {
+    "id": "newbie-06",
+    "category": "newbie",
+    "from_role": "marketer",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "카피 초안 잡아봐요",
+    "expect": "문구 초안 요청. 분량·톤·마감 질문"
+  },
+  {
+    "id": "newbie-07",
+    "category": "newbie",
+    "from_role": "developer",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "롤백했으니 다시 확인해주세요",
+    "expect": "이전 버전으로 되돌림. 무엇을 확인할지 질문"
+  },
+  {
+    "id": "pangyo-01",
+    "category": "pangyo",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "이거 오너십 가지고 드라이브 해주세요",
+    "expect": "책임지고 주도해서 진행"
+  },
+  {
+    "id": "pangyo-02",
+    "category": "pangyo",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "일단 러프하게 얼라인 먼저 하고 디테일은 나중에 픽스하죠",
+    "expect": "대략 방향 합의 후 세부는 나중 확정"
+  },
+  {
+    "id": "pangyo-03",
+    "category": "pangyo",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "이번 스프린트 스코프 아웃이에요",
+    "expect": "이번 작업 기간에서 제외"
+  },
+  {
+    "id": "pangyo-04",
+    "category": "pangyo",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "리소스 어레인지 해서 킥오프 잡죠",
+    "expect": "인력 배정 후 시작 회의"
+  },
+  {
+    "id": "pangyo-05",
+    "category": "pangyo",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그 이슈는 팔로업 부탁드려요",
+    "expect": "후속 조치 챙겨 달라"
+  },
+  {
+    "id": "pangyo-06",
+    "category": "pangyo",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "데드라인 타이트해서 프라이오리티 정리 필요해요",
+    "expect": "마감 촉박하니 우선순위 정리"
+  },
+  {
+    "id": "pangyo-07",
+    "category": "pangyo",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "리뷰 어젠다 픽스되면 인바이트 드릴게요",
+    "expect": "회의 안건 확정 후 초대"
+  },
+  {
+    "id": "pangyo-08",
+    "category": "pangyo",
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "이 피처는 넥스트 페이즈로 디퍼합시다",
+    "expect": "이 기능은 다음 단계로 미루자"
+  },
+  {
+    "id": "public-01",
+    "category": "public",
+    "from_role": "public_doc",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "본 사업의 수행 기간은 협약 체결일로부터 6개월로 하며, 사업 수행자는 중간보고서 및 최종보고서를 제출하여야 한다.",
+    "expect": "계약일부터 6개월, 보고서 2번. 숫자 유지"
+  },
+  {
+    "id": "public-02",
+    "category": "public",
+    "from_role": "public_doc",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "신청서 접수 후 결격 사유가 확인될 경우 선정이 취소될 수 있음",
+    "expect": "자격 문제 발견 시 취소 가능"
+  },
+  {
+    "id": "public-03",
+    "category": "public",
+    "from_role": "public_doc",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "정산 시 증빙자료 미비 시 해당 비용은 불인정 처리됨",
+    "expect": "영수증 없으면 비용 인정 안 됨"
+  },
+  {
+    "id": "public-04",
+    "category": "public",
+    "from_role": "public_doc",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "사업비는 전용카드로 집행함을 원칙으로 하며, 부득이한 경우 사전 승인을 득하여야 함",
+    "expect": "전용카드 사용, 예외는 미리 승인"
+  },
+  {
+    "id": "public-05",
+    "category": "public",
+    "from_role": "public_doc",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "제출 서류에 허위 사실이 있을 경우 향후 3년간 참여를 제한함",
+    "expect": "거짓 서류면 3년 참여 금지"
+  },
+  {
+    "id": "public-06",
+    "category": "public",
+    "from_role": "public_doc",
+    "to_role": "newbie",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "선정 결과에 대한 이의신청은 결과 통보일로부터 7일 이내에 서면으로 제출",
+    "expect": "이의는 7일 안에 서면으로"
+  },
+  {
+    "id": "reverse-01",
+    "category": "reverse",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "reverse",
+    "input": "그건 원래 안 되는 거예요",
+    "expect": "정중하게 불가 이유+대안 요청. 빈칸은 괄호"
+  },
+  {
+    "id": "reverse-02",
+    "category": "reverse",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "reverse",
+    "input": "지금 코드로는 절대 못 해요",
+    "expect": "결론 먼저, 필요한 것 제시"
+  },
+  {
+    "id": "reverse-03",
+    "category": "reverse",
+    "from_role": "designer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "reverse",
+    "input": "그 색은 촌스러워요",
+    "expect": "비하 없이 근거 있는 제안으로"
+  },
+  {
+    "id": "reverse-04",
+    "category": "reverse",
+    "from_role": "planner",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "reverse",
+    "input": "개발팀이 일정 못 맞춘대요",
+    "expect": "책임 전가 없이 상황·대안"
+  },
+  {
+    "id": "reverse-05",
+    "category": "reverse",
+    "from_role": "marketer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "reverse",
+    "input": "픽셀 왜 안 심어놨어요",
+    "expect": "비난 대신 요청+정보(플랫폼, 페이지)"
+  },
+  {
+    "id": "reverse-06",
+    "category": "reverse",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "reverse",
+    "input": "기획이 계속 바뀌어서 못 하겠어요",
+    "expect": "변경 동결 요청으로. 감정 제거"
+  },
+  {
+    "id": "reverse-07",
+    "category": "reverse",
+    "from_role": "newbie",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "reverse",
+    "input": "저 이거 못 할 것 같아요",
+    "expect": "막힌 지점·필요한 도움 명시"
+  },
+  {
+    "id": "reverse-08",
+    "category": "reverse",
+    "from_role": "client",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "reverse",
+    "input": "이거 하루면 되죠?",
+    "expect": "단정 대신 산정 요청으로"
+  },
+  {
+    "id": "reverse-09",
+    "category": "reverse",
+    "from_role": "executive",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "reverse",
+    "input": "빨리 좀 해주세요",
+    "expect": "기한·우선순위 명시 요청으로"
+  },
+  {
+    "id": "reverse-10",
+    "category": "reverse",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "reverse",
+    "input": "견적 다시 내야 해요",
+    "expect": "범위 변경으로 재견적 필요, 이유·다음 단계"
+  }
+]

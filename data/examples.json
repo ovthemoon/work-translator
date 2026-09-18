@@ -99,5 +99,40 @@
       ],
       "caution": null
     }
+  },
+  {
+    "id": "reverse-db-change",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "reverse",
+    "input": "그거 하려면 DB 구조를 좀 바꿔야 해서요",
+    "output": {
+      "translation": "결론부터 말씀드리면, 요청하신 기능은 데이터를 저장하는 방식 자체를 바꿔야 해서 단순 수정보다 시간이 더 걸려요. 예상 기간은 (예상 기간)이고, 그동안 쌓인 데이터를 새 방식으로 옮기는 작업도 함께 필요해요. 진행해도 될지 확인 부탁드려요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "예상 기간을 숫자(일 또는 주)로 정하세요",
+        "기존 데이터 이전 중 서비스 중단이 있는지 확인하세요"
+      ],
+      "caution": "기간을 비워 두고 보내면 '금방 되는 줄 알았다'는 오해가 생기기 쉬워요. 숫자를 채운 뒤 보내세요."
+    }
+  },
+  {
+    "id": "reverse-designer-spacing",
+    "from_role": "designer",
+    "to_role": "developer",
+    "depth": "practitioner",
+    "mode": "reverse",
+    "input": "여기 좀 더 숨 쉬게 해주세요",
+    "output": {
+      "translation": "(화면/컴포넌트 이름)의 요소 사이 간격을 (숫자)px 로 늘려 주세요. 모바일도 같은 값으로 부탁드려요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "어느 화면의 어떤 요소 사이인지 정하세요",
+        "늘릴 간격을 px 숫자로 정하세요",
+        "모바일에 다른 값을 쓸지 정하세요"
+      ],
+      "caution": null
+    }
   }
 ]
