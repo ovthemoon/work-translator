@@ -6,7 +6,7 @@
  * - 원본 요청의 클라이언트 IP 를 x-client-ip 로 넘기고, 위조를 막기 위해 x-proxy-secret 을 함께 보낸다.
  *   앱은 비밀값이 맞을 때만 x-client-ip 를 믿는다 (lib/request-ip.ts).
  */
-export default {
+const proxyWorker = {
   async fetch(request, env) {
     const origin = env.ORIGIN;
     if (!origin) return new Response("ORIGIN is not configured", { status: 500 });
@@ -36,3 +36,5 @@ export default {
     return upstream;
   },
 };
+
+export default proxyWorker;
