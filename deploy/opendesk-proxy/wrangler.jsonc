@@ -1,0 +1,13 @@
+{
+  "name": "work-translator-proxy",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "translate.opendesk.page/*", "zone_name": "opendesk.page" }
+  ],
+  "vars": {
+    "ORIGIN": "https://work-translator.vercel.app"
+  }
+  // PROXY_SECRET 은 `npx wrangler secret put PROXY_SECRET` 로 넣는다 (Vercel 의 PROXY_SECRET 과 같은 값)
+}
