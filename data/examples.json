@@ -48,6 +48,23 @@
     }
   },
   {
+    "id": "scope-out",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그건 스코프 밖이에요",
+    "output": {
+      "translation": "그 요청은 처음에 하기로 합의한 작업 범위에 들어 있지 않다는 뜻이에요. 그래서 지금 계약 안에서는 진행하기 어렵고, 하려면 별도로 이야기해야 해요.",
+      "split_requests": [],
+      "clarifying_questions": [
+        "그럼 이 부분을 추가하려면 비용과 일정이 어떻게 되나요?",
+        "원래 범위에 포함된 것과 아닌 것을 목록으로 정리해 주실 수 있나요?"
+      ],
+      "caution": "범위 밖 작업을 그냥 넘어가면 나중에 추가 비용이나 일정 지연으로 돌아올 수 있어요. 추가 여부와 조건을 먼저 정하세요."
+    }
+  },
+  {
     "id": "let-it-breathe",
     "from_role": "designer",
     "to_role": "developer",

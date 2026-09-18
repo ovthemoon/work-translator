@@ -1,0 +1,292 @@
+[
+  {
+    "id": "dev-client-01",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그건 스코프 밖이에요",
+    "expect": "계약 범위 밖이라 별도 협의 필요라는 뜻. 비용 주의"
+  },
+  {
+    "id": "dev-client-02",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "기술 부채 때문에 리팩토링이 먼저 필요해요",
+    "expect": "눈에 안 보이는 정리 작업이 먼저 필요. 기간 언급 없으면 질문"
+  },
+  {
+    "id": "dev-client-03",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "지금 스테이징에 올려놨으니 QA 해주세요",
+    "expect": "테스트용 사이트에서 확인해 달라는 뜻. 어디서 어떻게 보는지 질문 가능"
+  },
+  {
+    "id": "dev-client-04",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "API 응답이 느려서 캐싱을 붙여야 해요",
+    "expect": "외부 데이터가 느려 미리 저장해 두는 장치 필요. 추가 작업 주의"
+  },
+  {
+    "id": "dev-client-05",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "레거시라서 건드리면 다른 데가 깨질 수 있어요",
+    "expect": "오래된 코드라 수정 위험. 테스트 시간 필요"
+  },
+  {
+    "id": "dev-client-06",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그건 브라우저 정책 때문에 안 돼요",
+    "expect": "기술적 불가능. 대안 논의 필요"
+  },
+  {
+    "id": "dev-client-07",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "서드파티 장애라 저희 쪽에서는 할 수 있는 게 없어요",
+    "expect": "외부 업체 장애. 복구 시점 미정"
+  },
+  {
+    "id": "dev-client-08",
+    "category": "dev-client",
+    "from_role": "developer",
+    "to_role": "client",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "핫픽스로 일단 막고 근본 원인은 다음 스프린트에 잡을게요",
+    "expect": "임시 조치 후 근본 수정은 나중. 재발 가능 주의"
+  },
+  {
+    "id": "dev-exec-01",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "테스트 커버리지가 낮아서 배포가 위험해요",
+    "expect": "자동 검사가 부족해 출시 후 사고 위험. 테스트 시간 필요"
+  },
+  {
+    "id": "dev-exec-02",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "인프라 비용이 지난달 대비 40% 늘었어요",
+    "expect": "서버 비용 증가. 원인·대응 질문. 숫자는 원문 그대로"
+  },
+  {
+    "id": "dev-exec-03",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "이번 스프린트 벨로시티가 떨어졌어요",
+    "expect": "작업 처리 속도 감소. 원인 질문"
+  },
+  {
+    "id": "dev-exec-04",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "지금 구조로는 사용자 10배 늘면 못 버텨요",
+    "expect": "확장 한계. 언제쯤 문제인지·비용 질문"
+  },
+  {
+    "id": "dev-exec-05",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "보안 패치 때문에 하루 정도 서비스 점검이 필요해요",
+    "expect": "서비스 중단 필요. 시점 합의 질문"
+  },
+  {
+    "id": "dev-exec-06",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "이 기능은 외부 API 의존이라 저희가 컨트롤이 안 돼요",
+    "expect": "외부 서비스에 달려 있음. 장애 시 대응 한계"
+  },
+  {
+    "id": "dev-exec-07",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "온콜 돌아가면서 하느라 주간 개발 시간이 줄어요",
+    "expect": "장애 대응 당번 때문에 개발 시간 감소. 인력 논의"
+  },
+  {
+    "id": "dev-exec-08",
+    "category": "dev-exec",
+    "from_role": "developer",
+    "to_role": "executive",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "마이그레이션 중이라 이번 주는 신규 기능 못 받아요",
+    "expect": "시스템 이전 중. 새 요청은 다음 주 이후"
+  },
+  {
+    "id": "dev-design-01",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그 그라데이션은 CSS로 구현하면 성능이 안 나와요",
+    "expect": "구현 방식 한계. 이미지 대체 등 대안 질문"
+  },
+  {
+    "id": "dev-design-02",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이 폰트 웹폰트 라이선스 확인됐나요?",
+    "expect": "사용 권한 확인 요청"
+  },
+  {
+    "id": "dev-design-03",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "컴포넌트 재사용하려면 상태별 시안이 다 필요해요",
+    "expect": "hover/disabled 등 상태 시안 요청"
+  },
+  {
+    "id": "dev-design-04",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "이 아이콘 SVG로 주실 수 있어요?",
+    "expect": "파일 형식 요청"
+  },
+  {
+    "id": "dev-design-05",
+    "category": "dev-design",
+    "from_role": "developer",
+    "to_role": "designer",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "반응형 브레이크포인트 기준이 뭐예요?",
+    "expect": "화면 크기 기준 질문"
+  },
+  {
+    "id": "dev-plan-01",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그 요구사항은 엣지 케이스가 너무 많아요",
+    "expect": "예외 상황이 많아 명세가 더 필요"
+  },
+  {
+    "id": "dev-plan-02",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "스펙이 확정돼야 견적이 나와요",
+    "expect": "요구사항 고정 전엔 기간 산정 불가"
+  },
+  {
+    "id": "dev-plan-03",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그건 프론트 문제가 아니라 데이터 문제예요",
+    "expect": "화면이 아니라 저장된 데이터 쪽 원인"
+  },
+  {
+    "id": "dev-plan-04",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "명세에 예외 처리가 없어요",
+    "expect": "실패 상황 정의 요청"
+  },
+  {
+    "id": "dev-plan-05",
+    "category": "dev-plan",
+    "from_role": "developer",
+    "to_role": "planner",
+    "depth": "practitioner",
+    "mode": "translate",
+    "input": "그 기능은 기존 유저 데이터랑 충돌해요",
+    "expect": "기존 데이터와 호환 문제. 이전 계획 필요"
+  },
+  {
+    "id": "dev-mkt-01",
+    "category": "dev-mkt",
+    "from_role": "developer",
+    "to_role": "marketer",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "트래킹 스크립트 때문에 페이지 로딩이 느려져요",
+    "expect": "추적 코드가 속도 저하. 정리 필요"
+  },
+  {
+    "id": "dev-mkt-02",
+    "category": "dev-mkt",
+    "from_role": "developer",
+    "to_role": "marketer",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "그 데이터는 개인정보라 그렇게 못 써요",
+    "expect": "법적 제한. 대안 논의"
+  },
+  {
+    "id": "dev-mkt-03",
+    "category": "dev-mkt",
+    "from_role": "developer",
+    "to_role": "marketer",
+    "depth": "simple",
+    "mode": "translate",
+    "input": "리다이렉트 걸면 SEO 점수 떨어질 수 있어요",
+    "expect": "주소 이동 시 검색 순위 영향 주의"
+  }
+]
