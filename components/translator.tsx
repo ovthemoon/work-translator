@@ -23,7 +23,9 @@ export function Translator() {
   const [toRole, setToRole] = useState<RoleId>("developer");
   const [depth, setDepth] = useState<DepthId>("practitioner");
   const [mode, setMode] = useState<ModeId>("translate");
-  const [style, setStyle] = useState<StyleId>("explain");
+  const [styleChoice, setStyleChoice] = useState<StyleId | null>(null);
+  // 받는 사람이 개발자면 "개발자용 정리"가 기본. 사용자가 직접 고르면 그 선택을 유지한다.
+  const style: StyleId = styleChoice ?? (toRole === "developer" ? "spec" : "explain");
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
   const trimmed = text.trim();
@@ -67,7 +69,7 @@ export function Translator() {
               if ((e.metaKey || e.ctrlKey) && e.key === "Enter") void submit();
             }}
             placeholder={PLACEHOLDER[mode]}
-            rows={5}
+            rows={6}
             aria-invalid={overLimit}
             className="mt-1 min-h-36 resize-y bg-card text-base leading-relaxed"
           />
@@ -79,7 +81,7 @@ export function Translator() {
 
         <div className="flex flex-wrap items-center gap-4">
           <Segmented label="설명 깊이" options={DEPTHS} value={depth} onChange={setDepth} />
-          {mode === "translate" && <Segmented label="번역 스타일" options={STYLES} value={style} onChange={setStyle} />}
+          {mode === "translate" && <Segmented label="번역 스타일" options={STYLES} value={style} onChange={setStyleChoice} />}
           <Button type="submit" disabled={!canSubmit} size="lg" className="ml-auto">
             {status.kind === "loading" ? (mode === "translate" ? "번역하는 중…" : "다듬는 중…") : mode === "translate" ? "번역하기" : "다듬기"}
           </Button>

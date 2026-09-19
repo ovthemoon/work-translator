@@ -20,6 +20,8 @@ const ROOT = process.cwd();
 const PROMPT_FILES: Record<string, string> = {
   "translate:explain": path.join(ROOT, "prompts", "translate.system.md"),
   "translate:honest": path.join(ROOT, "prompts", "honest.system.md"),
+  "translate:spec": path.join(ROOT, "prompts", "spec.system.md"),
+  "reverse:spec": path.join(ROOT, "prompts", "reverse.system.md"),
   "reverse:explain": path.join(ROOT, "prompts", "reverse.system.md"),
   "reverse:honest": path.join(ROOT, "prompts", "reverse.system.md"),
 };

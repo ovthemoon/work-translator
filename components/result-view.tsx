@@ -34,7 +34,8 @@ function CopyButton({ text, label = "복사" }: { text: string; label?: string }
 
 export function ResultView({ input, output, remaining }: Props) {
   const isReverse = input.mode === "reverse";
-  const heading = isReverse ? "이렇게 보내 보세요" : input.style === "honest" ? "속마음은 이래요" : "이런 뜻이에요";
+  const isSpec = !isReverse && input.style === "spec";
+  const heading = isReverse ? "이렇게 보내 보세요" : isSpec ? "개발자용으로 정리하면" : input.style === "honest" ? "속마음은 이래요" : "이런 뜻이에요";
   return (
     <section aria-live="polite" className="rounded-xl border border-border bg-card p-5 sm:p-7">
       <p className="text-sm text-muted-foreground">
@@ -47,14 +48,16 @@ export function ResultView({ input, output, remaining }: Props) {
       <h2 className="mt-7 text-base font-semibold">
         <span className="mark">{heading}</span>
       </h2>
-      <p className="mt-3 text-lg leading-relaxed sm:text-xl whitespace-pre-wrap">{output.translation}</p>
+      <p className={isSpec ? "mt-3 text-[15px] leading-relaxed whitespace-pre-wrap sm:text-base" : "mt-3 text-lg leading-relaxed sm:text-xl whitespace-pre-wrap"}>
+        {output.translation}
+      </p>
       <div className="mt-2">
         <CopyButton text={output.translation} label={isReverse ? "메시지 복사" : "번역 복사"} />
       </div>
 
       {output.split_requests.length > 0 && (
         <div className="mt-7">
-          <h3 className="text-base font-semibold">요청은 사실 {output.split_requests.length}개예요</h3>
+          <h3 className="text-base font-semibold">{isSpec ? `작업 단위로 쪼개면 ${output.split_requests.length}개예요` : `요청은 사실 ${output.split_requests.length}개예요`}</h3>
           <ol className="mt-2 list-decimal space-y-1.5 pl-5 leading-relaxed">
             {output.split_requests.map((item, i) => (
               <li key={i}>{item}</li>
@@ -65,7 +68,7 @@ export function ResultView({ input, output, remaining }: Props) {
 
       {output.clarifying_questions.length > 0 && (
         <div className="mt-7">
-          <h3 className="text-base font-semibold">{isReverse ? "보내기 전에 정할 것" : "이렇게 되물어 보세요"}</h3>
+          <h3 className="text-base font-semibold">{isReverse ? "보내기 전에 정할 것" : isSpec ? "산정 전에 물어볼 것" : "이렇게 되물어 보세요"}</h3>
           <ul className="mt-2 space-y-2">
             {output.clarifying_questions.map((q, i) => (
               <li key={i} className="flex items-start justify-between gap-3 rounded-lg bg-accent px-3 py-2 leading-relaxed">

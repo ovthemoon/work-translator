@@ -60,8 +60,8 @@ describe("translateInputSchema", () => {
     expect(r.mode).toBe("translate");
   });
 
-  test("rejects text over 1000 chars", () => {
-    expect(translateInputSchema.safeParse({ ...base, text: "가".repeat(1001) }).success).toBe(false);
+  test("rejects text over 3000 chars", () => {
+    expect(translateInputSchema.safeParse({ ...base, text: "가".repeat(3001) }).success).toBe(false);
   });
 
   test("rejects empty or whitespace text", () => {
