@@ -19,7 +19,7 @@ class SupabaseFeedbackRepository implements FeedbackRepository {
   constructor(private readonly client: SupabaseClient) {}
 
   async save(sample: FeedbackSample): Promise<void> {
-    const { error } = await this.client.from("feedback_samples").insert(sample);
+    const { error } = await this.client.from("wt_feedback_samples").insert(sample);
     if (error) throw new Error(`feedback insert failed: ${error.code ?? error.message}`);
   }
 }

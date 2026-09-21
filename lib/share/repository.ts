@@ -25,24 +25,24 @@ class SupabaseShareRepository implements ShareRepository {
   constructor(private readonly client: SupabaseClient) {}
 
   async create(share: NewShare): Promise<void> {
-    const { error } = await this.client.from("shares").insert(share);
+    const { error } = await this.client.from("wt_shares").insert(share);
     if (error) throw new Error(`share insert failed: ${error.code ?? error.message}`);
   }
 
   async findById(id: string): Promise<ShareRecord | null> {
-    const { data, error } = await this.client.from("shares").select("*").eq("id", id).maybeSingle();
+    const { data, error } = await this.client.from("wt_shares").select("*").eq("id", id).maybeSingle();
     if (error) throw new Error(`share select failed: ${error.code ?? error.message}`);
     return (data as ShareRecord | null) ?? null;
   }
 
   async like(id: string): Promise<number> {
-    const { data, error } = await this.client.rpc("increment_share_likes", { share_id: id });
+    const { data, error } = await this.client.rpc("wt_increment_share_likes", { share_id: id });
     if (error) throw new Error(`share like failed: ${error.code ?? error.message}`);
     return Number(data ?? 0);
   }
 
   async listPublic(limit: number, fromRole?: RoleId): Promise<ShareRecord[]> {
-    let q = this.client.from("shares").select("*").eq("is_public", true).order("likes", { ascending: false }).order("created_at", { ascending: false }).limit(limit);
+    let q = this.client.from("wt_shares").select("*").eq("is_public", true).order("likes", { ascending: false }).order("created_at", { ascending: false }).limit(limit);
     if (fromRole) q = q.eq("from_role", fromRole);
     const { data, error } = await q;
     if (error) throw new Error(`share list failed: ${error.code ?? error.message}`);
