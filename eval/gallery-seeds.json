@@ -1,0 +1,162 @@
+[
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "급한 건 아닌데 이번 주 안에만 해주세요"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "로고만 살짝 바꿔주시면 돼요"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "버튼 하나만 추가하면 되는 거 아니에요?"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "네이버처럼 만들어주세요"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "일단 대충 만들어놓고 나중에 고치죠"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "이거 왜 이렇게 오래 걸려요? 그냥 복사 붙여넣기 아닌가요?"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "다른 데는 이거 하루면 한다던데"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "관리자 페이지에서 제가 다 수정할 수 있게 해주세요"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "AI 기능 하나 넣어주세요 요즘 다 하잖아요"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "디자인은 알아서 예쁘게 해주세요"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "일단 오픈하고 버그는 그때그때 고쳐요"
+  },
+  {
+    "from_role": "client",
+    "to_role": "developer",
+    "input": "견적서에 있던 거랑 좀 다른데 이것도 포함이죠?"
+  },
+  {
+    "from_role": "planner",
+    "to_role": "developer",
+    "input": "이거 간단하게 되죠?"
+  },
+  {
+    "from_role": "planner",
+    "to_role": "developer",
+    "input": "요구사항은 계속 추가될 수 있어요"
+  },
+  {
+    "from_role": "planner",
+    "to_role": "developer",
+    "input": "이건 P0예요"
+  },
+  {
+    "from_role": "planner",
+    "to_role": "developer",
+    "input": "런칭 날짜는 못 바꿔요"
+  },
+  {
+    "from_role": "executive",
+    "to_role": "developer",
+    "input": "이거 언제 되나요?"
+  },
+  {
+    "from_role": "executive",
+    "to_role": "developer",
+    "input": "경쟁사는 벌써 했던데"
+  },
+  {
+    "from_role": "executive",
+    "to_role": "developer",
+    "input": "일단 되게만 해주세요"
+  },
+  {
+    "from_role": "executive",
+    "to_role": "developer",
+    "input": "우리도 AI 붙여야 하지 않나?"
+  },
+  {
+    "from_role": "executive",
+    "to_role": "developer",
+    "input": "이번 분기 안에 무조건 나가야 해요"
+  },
+  {
+    "from_role": "executive",
+    "to_role": "developer",
+    "input": "왜 이렇게 사람이 많이 필요해요?"
+  },
+  {
+    "from_role": "designer",
+    "to_role": "developer",
+    "input": "여기 좀 더 힘 있게요"
+  },
+  {
+    "from_role": "designer",
+    "to_role": "developer",
+    "input": "이 컬러 좀 더 쨍하게 해주세요"
+  },
+  {
+    "from_role": "marketer",
+    "to_role": "developer",
+    "input": "랜딩 페이지 오늘 안에 하나 뽑아주세요"
+  },
+  {
+    "from_role": "marketer",
+    "to_role": "developer",
+    "input": "SEO 좀 잡아주세요"
+  },
+  {
+    "from_role": "developer",
+    "to_role": "client",
+    "input": "그건 스코프 밖이에요"
+  },
+  {
+    "from_role": "developer",
+    "to_role": "executive",
+    "input": "테스트 커버리지가 낮아서 배포가 위험해요"
+  },
+  {
+    "from_role": "developer",
+    "to_role": "executive",
+    "input": "지금 구조로는 사용자 10배 늘면 못 버텨요"
+  },
+  {
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "input": "이거 오너십 가지고 드라이브 해주세요"
+  },
+  {
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "input": "일단 러프하게 얼라인 먼저 하고 디테일은 나중에 픽스하죠"
+  },
+  {
+    "from_role": "pangyo",
+    "to_role": "newbie",
+    "input": "데드라인 타이트해서 프라이오리티 정리 필요해요"
+  }
+]
