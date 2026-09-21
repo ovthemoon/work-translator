@@ -37,8 +37,13 @@ export async function POST(req: NextRequest) {
   const repo = getShareRepository();
   if (!repo) return fail("공유 링크 기능은 아직 준비 중이에요.", 503);
 
-  const limit = await getRateLimiter().limit(`share:${getClientIp(req)}`);
-  if (!limit.success) return fail("오늘은 더 이상 공유 링크를 만들 수 없어요.", 429);
+  // 갤러리 씨앗 스크립트 전용 우회 (translate 라우트와 같은 토큰)
+  const bypassToken = process.env.EVAL_BYPASS_TOKEN;
+  const isSeed = Boolean(bypassToken) && req.headers.get("x-eval-token") === bypassToken;
+  if (!isSeed) {
+    const limit = await getRateLimiter().limit(`share:${getClientIp(req)}`);
+    if (!limit.success) return fail("오늘은 더 이상 공유 링크를 만들 수 없어요.", 429);
+  }
 
   try {
     const masked = await maskForStorage(input.text, output);
