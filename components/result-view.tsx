@@ -7,7 +7,7 @@ import { ShareCardButton } from "@/components/share-card";
 import { roleLabel } from "@/lib/translate/roles";
 import type { TranslateInput, TranslateOutput } from "@/lib/translate/schema";
 
-type Props = { input: TranslateInput; output: TranslateOutput; remaining: number };
+type Props = { input: TranslateInput; output: TranslateOutput; remaining: number; compact?: boolean };
 
 function CopyButton({ text, label = "복사" }: { text: string; label?: string }) {
   const [copied, setCopied] = useState(false);
@@ -32,20 +32,24 @@ function CopyButton({ text, label = "복사" }: { text: string; label?: string }
   );
 }
 
-export function ResultView({ input, output, remaining }: Props) {
+export function ResultView({ input, output, remaining, compact = false }: Props) {
   const isReverse = input.mode === "reverse";
   const isSpec = !isReverse && input.style === "spec";
   const heading = isReverse ? "이렇게 보내 보세요" : isSpec ? "개발자용으로 정리하면" : input.style === "honest" ? "속마음은 이래요" : "이런 뜻이에요";
   return (
     <section aria-live="polite" className="rounded-xl border border-border bg-card p-5 sm:p-7">
-      <p className="text-sm text-muted-foreground">
-        {roleLabel(input.fromRole)} → {roleLabel(input.toRole)}
-      </p>
-      <blockquote className="mt-2 border-l-2 border-border pl-3 text-[15px] leading-relaxed text-muted-foreground whitespace-pre-wrap">
-        {input.text}
-      </blockquote>
+      {!compact && (
+        <>
+          <p className="text-sm text-muted-foreground">
+            {roleLabel(input.fromRole)} → {roleLabel(input.toRole)}
+          </p>
+          <blockquote className="mt-2 border-l-2 border-border pl-3 text-[15px] leading-relaxed text-muted-foreground whitespace-pre-wrap">
+            {input.text}
+          </blockquote>
+        </>
+      )}
 
-      <h2 className="mt-7 text-base font-semibold">
+      <h2 className={compact ? "text-base font-semibold" : "mt-7 text-base font-semibold"}>
         <span className="mark">{heading}</span>
       </h2>
       <p className={isSpec ? "mt-3 text-[15px] leading-relaxed whitespace-pre-wrap sm:text-base" : "mt-3 text-lg leading-relaxed sm:text-xl whitespace-pre-wrap"}>
@@ -87,12 +91,15 @@ export function ResultView({ input, output, remaining }: Props) {
         </div>
       )}
 
-      <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-border pt-5">
-        <ShareCardButton input={input} output={output} />
-        <span className="ml-auto text-xs text-muted-foreground">오늘 남은 횟수 {remaining}회</span>
-      </div>
-
-      <FeedbackBar input={input} output={output} />
+      {!compact && (
+        <>
+          <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-border pt-5">
+            <ShareCardButton input={input} output={output} />
+            {remaining >= 0 && <span className="ml-auto text-xs text-muted-foreground">오늘 남은 횟수 {remaining}회</span>}
+          </div>
+          <FeedbackBar input={input} output={output} />
+        </>
+      )}
     </section>
   );
 }

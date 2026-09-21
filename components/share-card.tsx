@@ -9,10 +9,20 @@ import type { TranslateInput, TranslateOutput } from "@/lib/translate/schema";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 const SITE_HOST = SITE_URL.replace(/^https?:\/\//, "");
-const CARD_WIDTH = 640;
-const FILE_NAME = "업무용어번역.png";
+const CARD_WIDTH = 540;
+const CARD_HEIGHT = 675; // 4:5 세로. 인스타·스레드·카톡 미리보기에 맞는 비율
+const FILE_NAME = "속마음번역.png";
+const FONT = "'Pretendard Variable', Pretendard, -apple-system, system-ui, 'Apple SD Gothic Neo', sans-serif";
 
 type Props = { input: TranslateInput; output: TranslateOutput };
+
+function fontSizeFor(text: string, base: number, min: number): number {
+  const len = text.length;
+  if (len <= 30) return base;
+  if (len <= 60) return Math.round(base * 0.85);
+  if (len <= 120) return Math.round(base * 0.7);
+  return min;
+}
 
 async function blobFromDataUrl(dataUrl: string): Promise<Blob> {
   const res = await fetch(dataUrl);
@@ -23,6 +33,8 @@ export function ShareCardButton({ input, output }: Props) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<string | null>(null);
+  const isHonest = input.mode === "translate" && input.style === "honest";
+  const original = input.text.length > 220 ? input.text.slice(0, 220) + "…" : input.text;
 
   async function exportCard() {
     if (!cardRef.current || busy) return;
@@ -33,7 +45,7 @@ export function ShareCardButton({ input, output }: Props) {
       const blob = await blobFromDataUrl(dataUrl);
       const file = new File([blob], FILE_NAME, { type: "image/png" });
       if (typeof navigator.share === "function" && navigator.canShare?.({ files: [file] })) {
-        await navigator.share({ files: [file], title: "업무 용어 번역기" });
+        await navigator.share({ files: [file], title: "속마음 번역" });
         setNote("공유했어요.");
         return;
       }
@@ -52,59 +64,44 @@ export function ShareCardButton({ input, output }: Props) {
 
   return (
     <>
-      <Button variant="outline" onClick={exportCard} disabled={busy}>
+      <Button variant="outline" size="sm" onClick={exportCard} disabled={busy}>
         <ImageDown className="size-4" />
-        {busy ? "이미지 만드는 중…" : "이미지로 저장·공유"}
+        {busy ? "만드는 중…" : "이미지로 공유"}
       </Button>
       {note && <span className="text-xs text-muted-foreground">{note}</span>}
 
-      {/* 화면 밖에서 렌더링되는 공유 카드. 스타일은 폰트 로딩 실패에도 깨지지 않도록 인라인. */}
+      {/* 화면 밖에서 렌더링되는 공유 카드. 폰트 로딩과 무관하게 깨지지 않도록 인라인 스타일. */}
       <div aria-hidden className="pointer-events-none fixed top-0 -left-[10000px]">
         <div
           ref={cardRef}
           style={{
             width: CARD_WIDTH,
-            padding: "36px 40px",
+            height: CARD_HEIGHT,
+            padding: "44px 44px 36px",
             background: "#ffffff",
             color: "#1a2440",
-            fontFamily: "'Pretendard Variable', Pretendard, -apple-system, system-ui, 'Apple SD Gothic Neo', sans-serif",
-            lineHeight: 1.6,
+            fontFamily: FONT,
+            display: "flex",
+            flexDirection: "column",
+            boxSizing: "border-box",
           }}
         >
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 13, color: "#5f6676" }}>
-            <span style={{ fontWeight: 600 }}>업무 용어 번역기</span>
-            <span>{roleLabel(input.fromRole)} → {roleLabel(input.toRole)}</span>
+          <div style={{ fontSize: 15, color: "#5f6676" }}>{roleLabel(input.fromRole)}의 말</div>
+          <div style={{ marginTop: 10, fontSize: fontSizeFor(original, 26, 17), lineHeight: 1.4, color: "#3b4258", whiteSpace: "pre-wrap", wordBreak: "keep-all" }}>
+            “{original}”
           </div>
 
-          <div style={{ marginTop: 22, fontSize: 13, color: "#5f6676" }}>원문</div>
-          <div style={{ marginTop: 4, fontSize: 17, borderLeft: "3px solid #d9dde5", paddingLeft: 12, whiteSpace: "pre-wrap" }}>{input.text}</div>
-
-          <div style={{ marginTop: 22, fontSize: 13, color: "#5f6676" }}>
-            <span style={{ background: "linear-gradient(transparent 55%, #ffe45c 55%, #ffe45c 92%, transparent 92%)", padding: "0 2px", color: "#1a2440", fontWeight: 600 }}>
-              {input.mode === "reverse" ? "이렇게 보내 보세요" : input.style === "spec" ? "개발자용으로 정리하면" : input.style === "honest" ? "속마음은 이래요" : "이런 뜻이에요"}
-            </span>
+          <div style={{ marginTop: "auto" }}>
+            <div style={{ display: "inline-block", fontSize: 15, fontWeight: 700, background: "linear-gradient(transparent 50%, #ffe45c 50%, #ffe45c 92%, transparent 92%)", padding: "0 3px" }}>
+              {isHonest ? "속마음" : input.mode === "reverse" ? "이렇게 보내 보세요" : "이런 뜻"}
+            </div>
+            <div style={{ marginTop: 12, fontSize: fontSizeFor(output.translation, 40, 22), fontWeight: 800, lineHeight: 1.28, whiteSpace: "pre-wrap", wordBreak: "keep-all" }}>
+              {output.translation}
+            </div>
           </div>
-          <div style={{ marginTop: 6, fontSize: input.style === "spec" && input.mode !== "reverse" ? 15 : 21, fontWeight: input.style === "spec" && input.mode !== "reverse" ? 500 : 600, whiteSpace: "pre-wrap" }}>{output.translation}</div>
 
-          {output.clarifying_questions.length > 0 && (
-            <div style={{ marginTop: 20 }}>
-              <div style={{ fontSize: 13, color: "#5f6676" }}>{input.mode === "reverse" ? "보내기 전에 정할 것" : "되물어 볼 것"}</div>
-              <ul style={{ margin: "4px 0 0", paddingLeft: 18, fontSize: 15 }}>
-                {output.clarifying_questions.map((q, i) => (
-                  <li key={i}>{q}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {output.caution && (
-            <div style={{ marginTop: 20, background: "#fff4e5", color: "#9a4a05", borderRadius: 10, padding: "10px 14px", fontSize: 14 }}>
-              {output.caution}
-            </div>
-          )}
-
-          <div style={{ marginTop: 28, paddingTop: 14, borderTop: "1px solid #d9dde5", fontSize: 13, color: "#5f6676", display: "flex", justifyContent: "space-between" }}>
-            <span>직군이 다르면 같은 말도 다르게 들려요</span>
+          <div style={{ marginTop: 32, paddingTop: 14, borderTop: "1px solid #d9dde5", fontSize: 13, color: "#5f6676", display: "flex", justifyContent: "space-between" }}>
+            <span>직장인 속마음 번역기</span>
             <span style={{ fontWeight: 600, color: "#2456e6" }}>{SITE_HOST}</span>
           </div>
         </div>
