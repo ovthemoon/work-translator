@@ -50,9 +50,17 @@ class SupabaseShareRepository implements ShareRepository {
   }
 }
 
-/** 로컬 개발용. 서버 재시작 시 사라진다. */
+/** 로컬 개발용. 서버 재시작 시 사라진다. Next 개발 서버는 번들마다 모듈이 따로 뜨므로 globalThis 에 저장소를 둔다. */
+const MEMORY_KEY = "__wt_share_rows__";
+
+function memoryRows(): Map<string, ShareRecord> {
+  const g = globalThis as unknown as Record<string, Map<string, ShareRecord> | undefined>;
+  if (!g[MEMORY_KEY]) g[MEMORY_KEY] = new Map<string, ShareRecord>();
+  return g[MEMORY_KEY];
+}
+
 export class MemoryShareRepository implements ShareRepository {
-  private readonly rows = new Map<string, ShareRecord>();
+  private readonly rows = memoryRows();
 
   async create(share: NewShare): Promise<void> {
     this.rows.set(share.id, { ...share, likes: 0, is_public: true, created_at: new Date().toISOString() });
