@@ -8,11 +8,19 @@
  */
 const proxyWorker = {
   async fetch(request, env) {
+    const incoming = new URL(request.url);
+    if (incoming.pathname === "/favicon.ico" && (request.method === "GET" || request.method === "HEAD")) {
+      return fetch("https://nerdevs.co.kr/favicon-v3.png", {
+        method: request.method,
+        cf: { cacheEverything: true, cacheTtl: 86400 },
+      });
+    }
     const origin = env.ORIGIN;
     if (!origin) return new Response("ORIGIN is not configured", { status: 500 });
 
-    const incoming = new URL(request.url);
-    const target = new URL(incoming.pathname + incoming.search, origin);
+    const target = new URL(origin);
+    target.pathname = incoming.pathname;
+    target.search = incoming.search;
 
     // 원 요청을 그대로 복제(메서드·본문 포함)하고 헤더만 손본다.
     const proxied = new Request(target.toString(), request);
@@ -28,9 +36,10 @@ const proxyWorker = {
 
     // Vercel 이 자기 호스트로 리다이렉트하면 우리 호스트로 되돌린다
     const location = upstream.headers.get("location");
-    if (location && location.startsWith(origin)) {
+    if (location && new URL(location, target).origin === target.origin) {
       const fixed = new Headers(upstream.headers);
-      fixed.set("location", location.replace(origin, `https://${incoming.host}`));
+      const redirected = new URL(location, target);
+      fixed.set("location", `https://${incoming.host}${redirected.pathname}${redirected.search}${redirected.hash}`);
       return new Response(upstream.body, { status: upstream.status, headers: fixed });
     }
     return upstream;
